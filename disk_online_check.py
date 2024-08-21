@@ -56,8 +56,8 @@ def send_status_to_esp8266(status_info):
 
 def main():
     # 获取磁盘状态
-    # disk_status = get_disk_status()
-    disk_status = 0
+    disk_status = get_disk_status()
+    # 若无法获取磁盘状态：
     if not disk_status:
         toaster.show_toast(f"火火科技提醒您：",
                    f"无法获取阵列磁盘状态，请检查 Megacli 软件运行状态或磁盘连接情况。",
