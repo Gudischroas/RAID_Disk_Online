@@ -51,12 +51,13 @@ def send_status_to_esp8266(status_info):
         r, g, b = status_to_color(status)
         data = f'{slot}:{r},{g},{b}\n'
         ser.write(data.encode())
-
+        time.sleep(0.1)
     ser.close()
 
 def main():
     # 获取磁盘状态
     disk_status = get_disk_status()
+    
     # 若无法获取磁盘状态：
     if not disk_status:
         toaster.show_toast(f"火火科技提醒您：",
